@@ -1,0 +1,36 @@
+{
+    "name": "telegram-forward",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "3.10"
+        }
+    },
+    "mounts": [
+        "type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,readonly"
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+    "appPort": [
+        "8005:8000"
+    ],
+    "settings": {
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.languageServer": "Pylance",
+        "python.analysis.typeCheckingMode": "basic"
+    },
+    "extensions": [
+        "ms-python.vscode-pylance",
+        "wayou.vscode-todo-highlight",
+        "streetsidesoftware.code-spell-checker",
+        "RandomFractalsInc.vscode-data-preview",
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+        "oderwat.indent-rainbow"
+    ],
+    "remoteUser": "vscode",
+    "features": {
+        "git": "os-provided",
+        "git-lfs": "latest"
+    }
+}
